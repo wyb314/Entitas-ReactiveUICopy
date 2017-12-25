@@ -9,8 +9,8 @@
         this.Add(new NotifyElixirListenersSystem(contexs));
 
         var logicSystems = new LogicSystems(contexs);
-
-        contexs.game.SetLogicSystems(logicSystems);
-        //this.Add(logicSystems);
+        contexs.game.CreateEntity().AddLogicSystems(logicSystems);
+        //contexs.game.SetLogicSystems(logicSystems);
+        this.Add(logicSystems);
     }
 }

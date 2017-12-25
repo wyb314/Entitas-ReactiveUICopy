@@ -345,7 +345,7 @@ public class NotifyTickListenersSystem : ReactiveSystem<GameEntity>
 
     protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
     {
-        return context.CreateCollector(GameMatcher.TickListener.Added());
+        return context.CreateCollector(GameMatcher.Tick.Added());
     }
 
     protected override bool Filter(GameEntity entity)

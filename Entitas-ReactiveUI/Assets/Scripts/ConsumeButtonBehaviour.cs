@@ -17,11 +17,17 @@ public class ConsumeButtonBehaviour : MonoBehaviour, IPauseListener, IElixirList
 	    GameEntity entity = Contexts.sharedInstance.game.CreateEntity();
         entity.AddPauseListener(this);
         entity.AddElixirListener(this);
-		//Pools.pool.CreateEntity().AddPauseListener(this).AddElixirListener(this);
-	}
+        
+        
+        //Contexts.sharedInstance.game.DestroyAllEntities();
+        //entity = Contexts.sharedInstance.game.CreateEntity();
+        //entity.AddPauseListener(this);
+        //Pools.pool.CreateEntity().AddPauseListener(this).AddElixirListener(this);
+    }
 
 	public void PauseStateChanged ()
 	{
+        //UnityEngine.Debug.LogError("PauseStateChanged is invoke! hashCode->"+this.GetHashCode());
 		GetComponent<Button>().enabled = !Contexts.sharedInstance.game.isPause;
 	}
 
