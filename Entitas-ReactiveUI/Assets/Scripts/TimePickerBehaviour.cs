@@ -5,14 +5,14 @@ public class TimePickerBehaviour : MonoBehaviour, IPauseListener {
 
 	void Start () 
 	{
-        Contexts.sharedInstance.game.CreateEntity().AddPauseListener(this);
+        Contexts.sharedInstance.input.CreateEntity().AddPauseListener(this);
         //Pools.pool.CreateEntity().AddPauseListener(this);
         PauseStateChanged();
     }
 
 	public void PauseStateChanged ()
 	{
-        gameObject.SetActive(Contexts.sharedInstance.game.isPause);
+        gameObject.SetActive(Contexts.sharedInstance.input.isPause);
         if (Contexts.sharedInstance.game.hasTick)
         {
             var slider = GetComponent<Slider>();

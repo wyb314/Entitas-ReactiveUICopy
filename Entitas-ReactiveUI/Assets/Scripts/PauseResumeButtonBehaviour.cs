@@ -7,8 +7,9 @@ public class PauseResumeButtonBehaviour : MonoBehaviour {
 
 	public void ButtonPressed()
 	{
-	    Contexts.sharedInstance.game.isPause = !Contexts.sharedInstance.game.isPause;
+        //Contexts.sharedInstance.input.is
+	    Contexts.sharedInstance.input.isPause = !Contexts.sharedInstance.input.isPause;
         //Pools.pool.isPause = !Pools.pool.isPause;
-        label.text = Contexts.sharedInstance.game.isPause ? "Resume" : "Pause";
+        label.text = Contexts.sharedInstance.input.isPause ? "Resume" : "Pause";
     }
 }

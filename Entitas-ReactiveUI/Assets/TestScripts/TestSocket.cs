@@ -14,4 +14,12 @@ public class TestSocket : MonoBehaviour {
 	void Update () {
 		
 	}
+
+    void OnGUI()
+    {
+        if (GUILayout.Button("Test tickentity"))
+        {
+            Debug.LogError("game tickentity null ->" + (Contexts.sharedInstance.game.tickEntity == null));
+        }
+    }
 }

@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Threading;
+using UnityEngine;
 using Entitas;
 
 public class RootSystemBehaviour : MonoBehaviour
@@ -12,37 +13,18 @@ public class RootSystemBehaviour : MonoBehaviour
 
     void Start()
     {
-        //var logicSystems = CreateLogicSystems();
-
-        //_systems = new Systems();
-        //_systems.Add(Pools.pool.CreateSystem<ReplaySystem>());
-        //_systems.Add(Pools.pool.CreateSystem<CleanupConsumtionHistorySystem>());
-        //_systems.Add(Pools.pool.CreateSystem<NotifyTickListenersSystem>());
-        //_systems.Add(Pools.pool.CreateSystem<NotifyPauseListenersSystem>());
-        //_systems.Add(Pools.pool.CreateSystem<NotifyElixirListenersSystem>());
-        //_systems.Add(logicSystems);
-
-        //_systems.Initialize();
-
         var contexts = Contexts.sharedInstance;
-        this._systems = new ReactiveUISystems(contexts);
+        
+        this._systems = new Feature("Systems")
+            .Add(new ReplaySystems(contexts))
+            .Add(new GameStateSystems(contexts))
+            .Add(new ListenerSystems(contexts))
+            ;
+
+
         this._systems.Initialize();
     }
-
-    //Systems CreateLogicSystems()
-    //{
-    //    var pool = Pools.pool;
-    //    if (!pool.hasLogicSystems)
-    //    {
-    //        pool.SetLogicSystems(new Systems()
-    //            .Add(pool.CreateSystem<TickUpdateSystem>())
-    //            .Add(pool.CreateSystem<ElixirProduceSystem>())
-    //            .Add(pool.CreateSystem<ElixirConsumeSystem>())
-    //            .Add(pool.CreateSystem<ElixirConsumePersistSystem>())
-    //            .Add(pool.CreateSystem<ElixirConsumeCleanupSystem>()));
-    //    }
-    //    return pool.logicSystems.systems;
-    //}
+    
 
     void Update()
     {
@@ -53,5 +35,10 @@ public class RootSystemBehaviour : MonoBehaviour
     void OnDestroy()
     {
         this._systems.TearDown();
+        _systems.ClearReactiveSystems();
+        Contexts.sharedInstance.game.DestroyAllEntities();
+        Contexts.sharedInstance.input.DestroyAllEntities();
+
+       
     }
 }

@@ -8,15 +8,21 @@
 //------------------------------------------------------------------------------
 public static class InputComponentsLookup {
 
+    public const int Consume = 0;
+    public const int Pause = 1;
+    public const int PauseListener = 2;
 
-
-    public const int TotalComponents = 0;
+    public const int TotalComponents = 3;
 
     public static readonly string[] componentNames = {
-
+        "Consume",
+        "Pause",
+        "PauseListener"
     };
 
     public static readonly System.Type[] componentTypes = {
-
+        typeof(ConsumeComponent),
+        typeof(PauseComponent),
+        typeof(PauseListenerComponent)
     };
 }

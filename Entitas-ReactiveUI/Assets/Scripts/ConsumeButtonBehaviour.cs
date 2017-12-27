@@ -9,16 +9,44 @@ public class ConsumeButtonBehaviour : MonoBehaviour, IPauseListener, IElixirList
 
 	float maxHeight;
 
+    //private InputEntity inputEntity; 
+
 	void Awake()
 	{
 		maxHeight = progressBox.rect.height;
 		label.text = consumptionAmmount.ToString();
 
-	    GameEntity entity = Contexts.sharedInstance.game.CreateEntity();
-        entity.AddPauseListener(this);
-        entity.AddElixirListener(this);
-        
-        
+	    var inputEntity = Contexts.sharedInstance.input.pauseEntity;
+
+	    if (inputEntity == null)
+	    {
+
+	        //Contexts.sharedInstance.input.CreateEntity().isPause = true;
+
+         //   inputEntity = Contexts.sharedInstance.input.pauseEntity;
+        }
+        //inputEntity.AddPauseListener(this);
+
+
+	    //this.inputEntity = Contexts.sharedInstance.input.CreateEntity();
+     //   this.inputEntity.AddPauseListener(this);
+     //   this.inputEntity.Retain(this);
+
+	    var gameEntity = Contexts.sharedInstance.game.elixirEntity;
+	    if (gameEntity == null)
+	    {
+	        gameEntity = Contexts.sharedInstance.game.CreateEntity();
+	        gameEntity.AddElixirListener(this);
+	    }
+	    else
+	    {
+            gameEntity.AddElixirListener(this);
+        }
+	    
+        //GameEntity gameEntity = Contexts.sharedInstance.game.CreateEntity();
+        //gameEntity.AddElixirListener(this);
+
+
         //Contexts.sharedInstance.game.DestroyAllEntities();
         //entity = Contexts.sharedInstance.game.CreateEntity();
         //entity.AddPauseListener(this);
@@ -28,7 +56,7 @@ public class ConsumeButtonBehaviour : MonoBehaviour, IPauseListener, IElixirList
 	public void PauseStateChanged ()
 	{
         //UnityEngine.Debug.LogError("PauseStateChanged is invoke! hashCode->"+this.GetHashCode());
-		GetComponent<Button>().enabled = !Contexts.sharedInstance.game.isPause;
+		GetComponent<Button>().enabled = !Contexts.sharedInstance.input.isPause;
 	}
 
 	public void ElixirAmountChanged ()
@@ -40,7 +68,8 @@ public class ConsumeButtonBehaviour : MonoBehaviour, IPauseListener, IElixirList
 
     public void ButtonPressed()
     {
-        if (Contexts.sharedInstance.game.isPause) return;
-        Contexts.sharedInstance.game.CreateEntity().AddConsume(consumptionAmmount);
+        if (Contexts.sharedInstance.input.isPause) return;
+        Contexts.sharedInstance.input.CreateEntity().ReplaceConsume(consumptionAmmount);
+        //Contexts.sharedInstance.input.CreateEntity().AddConsume(consumptionAmmount);
     }
 }

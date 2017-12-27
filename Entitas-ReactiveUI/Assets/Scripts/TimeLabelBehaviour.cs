@@ -5,6 +5,7 @@ public class TimeLabelBehaviour : MonoBehaviour, ITickListener {
 
 	void Awake ()
 	{
+       
         Contexts.sharedInstance.game.CreateEntity().AddTickListener(this);
 		//Pools.pool.CreateEntity().AddTickListener(this);
 	}
