@@ -36,11 +36,11 @@ public class ConsumeButtonBehaviour : MonoBehaviour, IPauseListener, IElixirList
 	    if (gameEntity == null)
 	    {
 	        gameEntity = Contexts.sharedInstance.game.CreateEntity();
-	        gameEntity.AddElixirListener(this);
+	        //gameEntity.AddElixirListener(this);
 	    }
 	    else
 	    {
-            gameEntity.AddElixirListener(this);
+            //gameEntity.AddElixirListener(this);
         }
 	    
         //GameEntity gameEntity = Contexts.sharedInstance.game.CreateEntity();

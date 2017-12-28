@@ -29,7 +29,7 @@ public class NotifyTickListenersSystem : ReactiveSystem<GameEntity>,ICleanupSyst
     {
         foreach (var entity in listeners.GetEntities())
         {
-            entity.tickListener.listener.TickChanged();
+            entity.tickListener.listener();
         }
     }
 

@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class ElixirAmountBehaviour : MonoBehaviour, IElixirListener {
 
 	void Start () {
-        Contexts.sharedInstance.game.CreateEntity().AddElixirListener(this);
+        //Contexts.sharedInstance.game.CreateEntity().AddElixirListener(this);
         //Pools.pool.CreateEntity().AddElixirListener(this);
 	}
 

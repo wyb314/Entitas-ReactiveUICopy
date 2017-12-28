@@ -13,10 +13,11 @@ public static class GameComponentsLookup {
     public const int ElixirListener = 2;
     public const int JumpInTime = 3;
     public const int LogicSystems = 4;
-    public const int Tick = 5;
-    public const int TickListener = 6;
+    public const int ReactiveUI = 5;
+    public const int Tick = 6;
+    public const int TickListener = 7;
 
-    public const int TotalComponents = 7;
+    public const int TotalComponents = 8;
 
     public static readonly string[] componentNames = {
         "ConsumtionHistory",
@@ -24,6 +25,7 @@ public static class GameComponentsLookup {
         "ElixirListener",
         "JumpInTime",
         "LogicSystems",
+        "ReactiveUI",
         "Tick",
         "TickListener"
     };
@@ -34,6 +36,7 @@ public static class GameComponentsLookup {
         typeof(ElixirListenerComponent),
         typeof(JumpInTimeComponent),
         typeof(LogicSystemsComponent),
+        typeof(ReactiveUIComponent),
         typeof(TickComponent),
         typeof(TickListenerComponent)
     };

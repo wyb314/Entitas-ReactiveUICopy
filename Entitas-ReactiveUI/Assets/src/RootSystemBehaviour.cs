@@ -16,12 +16,12 @@ public class RootSystemBehaviour : MonoBehaviour
         var contexts = Contexts.sharedInstance;
         
         this._systems = new Feature("Systems")
+            .Add(new InitSystem(contexts))
             .Add(new ReplaySystems(contexts))
             .Add(new GameStateSystems(contexts))
             .Add(new ListenerSystems(contexts))
             ;
-
-
+        
         this._systems.Initialize();
     }
     

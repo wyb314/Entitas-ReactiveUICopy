@@ -11,14 +11,14 @@ public partial class InputEntity {
     public PauseListenerComponent pauseListener { get { return (PauseListenerComponent)GetComponent(InputComponentsLookup.PauseListener); } }
     public bool hasPauseListener { get { return HasComponent(InputComponentsLookup.PauseListener); } }
 
-    public void AddPauseListener(IPauseListener newListener) {
+    public void AddPauseListener(PauseStateChangedDelegate newListener) {
         var index = InputComponentsLookup.PauseListener;
         var component = CreateComponent<PauseListenerComponent>(index);
         component.listener = newListener;
         AddComponent(index, component);
     }
 
-    public void ReplacePauseListener(IPauseListener newListener) {
+    public void ReplacePauseListener(PauseStateChangedDelegate newListener) {
         var index = InputComponentsLookup.PauseListener;
         var component = CreateComponent<PauseListenerComponent>(index);
         component.listener = newListener;

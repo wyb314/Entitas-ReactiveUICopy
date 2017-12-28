@@ -3,7 +3,7 @@
 public class ElixirBarBehaviour : MonoBehaviour, IElixirListener {
 
 	void Start () {
-        Contexts.sharedInstance.game.CreateEntity().AddElixirListener(this);
+        //Contexts.sharedInstance.game.CreateEntity().AddElixirListener(this);
         //Pools.pool.CreateEntity().AddElixirListener(this);
 	}
 

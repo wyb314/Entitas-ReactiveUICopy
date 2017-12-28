@@ -8,21 +8,33 @@
 //------------------------------------------------------------------------------
 public static class InputComponentsLookup {
 
-    public const int Consume = 0;
-    public const int Pause = 1;
-    public const int PauseListener = 2;
+    public const int AddReactiveUI = 0;
+    public const int Consume = 1;
+    public const int DestroyReactiveUI = 2;
+    public const int Pause = 3;
+    public const int PauseListener = 4;
+    public const int StartGame = 5;
+    public const int StartProduceElixir = 6;
 
-    public const int TotalComponents = 3;
+    public const int TotalComponents = 7;
 
     public static readonly string[] componentNames = {
+        "AddReactiveUI",
         "Consume",
+        "DestroyReactiveUI",
         "Pause",
-        "PauseListener"
+        "PauseListener",
+        "StartGame",
+        "StartProduceElixir"
     };
 
     public static readonly System.Type[] componentTypes = {
+        typeof(AddReactiveUIComponent),
         typeof(ConsumeComponent),
+        typeof(DestroyReactiveUIComponent),
         typeof(PauseComponent),
-        typeof(PauseListenerComponent)
+        typeof(PauseListenerComponent),
+        typeof(StartGame),
+        typeof(StartProduceElixir)
     };
 }

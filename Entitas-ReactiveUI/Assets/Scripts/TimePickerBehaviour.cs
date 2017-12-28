@@ -5,7 +5,7 @@ public class TimePickerBehaviour : MonoBehaviour, IPauseListener {
 
 	void Start () 
 	{
-        Contexts.sharedInstance.input.CreateEntity().AddPauseListener(this);
+        //Contexts.sharedInstance.input.CreateEntity().AddPauseListener(this);
         //Pools.pool.CreateEntity().AddPauseListener(this);
         PauseStateChanged();
     }

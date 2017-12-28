@@ -18,19 +18,21 @@ public class TestGameEntry : MonoBehaviour {
 
     private void OnGUI()
     {
-        if (elixirUIGo == null)
+        if (!Contexts.sharedInstance.game.hasReactiveUI)
         {
-            if (GUILayout.Button("Create elixirUIGo"))
+            if (GUILayout.Button("Start Game"))
             {
-                GameObject pfb = Resources.Load<GameObject>("ReactiveUI");
-                elixirUIGo = GameObject.Instantiate(pfb,Vector3.zero,Quaternion.identity);
+                Contexts.sharedInstance.input.CreateEntity().isAddReactiveUI = true;
+                //GameObject pfb = Resources.Load<GameObject>("ReactiveUI");
+                //elixirUIGo = GameObject.Instantiate(pfb,Vector3.zero,Quaternion.identity);
             }
         }
         else
         {
-            if (GUILayout.Button("Destroy elixirUIGo"))
+            if (GUILayout.Button("Destroy Game"))
             {
-                GameObject.Destroy(elixirUIGo);
+                Contexts.sharedInstance.input.CreateEntity().isDestroyReactiveUI = true;
+                //GameObject.Destroy(elixirUIGo);
             }
         }
     }

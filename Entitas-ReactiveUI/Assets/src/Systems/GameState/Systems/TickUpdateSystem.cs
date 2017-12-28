@@ -12,7 +12,7 @@ public class TickUpdateSystem : IInitializeSystem, IExecuteSystem,ICleanupSystem
 
     public void Execute()
     {
-        if (!Contexts.sharedInstance.input.isPause)
+        if (!Contexts.sharedInstance.input.isPause && Contexts.sharedInstance.input.isStartProduceElixir)
         {
             long currentTick = Contexts.sharedInstance.game.tick.currentTick;
             Contexts.sharedInstance.game.ReplaceTick(currentTick + 1);

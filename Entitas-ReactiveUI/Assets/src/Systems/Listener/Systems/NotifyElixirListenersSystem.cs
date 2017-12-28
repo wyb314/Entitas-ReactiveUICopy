@@ -30,7 +30,7 @@ public class NotifyElixirListenersSystem : ReactiveSystem<GameEntity>, ITearDown
     {
         foreach (var entity in listeners.GetEntities())
         {
-            entity.elixirListener.listener.ElixirAmountChanged();
+            entity.elixirListener.listener();
         }
     }
 

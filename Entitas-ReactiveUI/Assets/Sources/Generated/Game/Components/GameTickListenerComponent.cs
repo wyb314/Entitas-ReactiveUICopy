@@ -11,14 +11,14 @@ public partial class GameEntity {
     public TickListenerComponent tickListener { get { return (TickListenerComponent)GetComponent(GameComponentsLookup.TickListener); } }
     public bool hasTickListener { get { return HasComponent(GameComponentsLookup.TickListener); } }
 
-    public void AddTickListener(ITickListener newListener) {
+    public void AddTickListener(TickChangedDelegate newListener) {
         var index = GameComponentsLookup.TickListener;
         var component = CreateComponent<TickListenerComponent>(index);
         component.listener = newListener;
         AddComponent(index, component);
     }
 
-    public void ReplaceTickListener(ITickListener newListener) {
+    public void ReplaceTickListener(TickChangedDelegate newListener) {
         var index = GameComponentsLookup.TickListener;
         var component = CreateComponent<TickListenerComponent>(index);
         component.listener = newListener;

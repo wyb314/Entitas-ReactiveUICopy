@@ -27,7 +27,7 @@ public class NotifyPauseListenersSystem : ReactiveSystem<InputEntity>, ITearDown
     {
         foreach (var entity in listeners.GetEntities())
         {
-            entity.pauseListener.listener.PauseStateChanged();
+            entity.pauseListener.listener();
         }
     }
 

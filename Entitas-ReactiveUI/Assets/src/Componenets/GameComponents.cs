@@ -1,6 +1,7 @@
 ﻿using Entitas;
 using System.Collections.Generic;
 using Entitas.CodeGeneration.Attributes;
+using UnityEngine;
 
 [Unique]
 [Game]
@@ -52,23 +53,33 @@ public class LogicSystemsComponent : IComponent
 	public Systems systems;
 }
 
-
-public interface ITickListener {
-	void TickChanged();
+[Unique]
+[Game]
+public class ReactiveUIComponent : IComponent
+{
+    public GameObject uiContent;
 }
+
+
+public delegate void TickChangedDelegate();
 
 [Game]
 public class TickListenerComponent : IComponent {
-	public ITickListener listener;
+	public TickChangedDelegate listener;
 }
 
-
-
-public interface IElixirListener {
-	void ElixirAmountChanged();
-}
-
+public delegate void ElixirAmountChangedDelegate();
 [Game]
 public class ElixirListenerComponent : IComponent {
-	public IElixirListener listener;
+	public ElixirAmountChangedDelegate listener;
+}
+
+public interface ITickListener
+{
+    void TickChanged();
+}
+
+public interface IElixirListener
+{
+    void ElixirAmountChanged();
 }

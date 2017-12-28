@@ -11,14 +11,14 @@ public partial class GameEntity {
     public ElixirListenerComponent elixirListener { get { return (ElixirListenerComponent)GetComponent(GameComponentsLookup.ElixirListener); } }
     public bool hasElixirListener { get { return HasComponent(GameComponentsLookup.ElixirListener); } }
 
-    public void AddElixirListener(IElixirListener newListener) {
+    public void AddElixirListener(ElixirAmountChangedDelegate newListener) {
         var index = GameComponentsLookup.ElixirListener;
         var component = CreateComponent<ElixirListenerComponent>(index);
         component.listener = newListener;
         AddComponent(index, component);
     }
 
-    public void ReplaceElixirListener(IElixirListener newListener) {
+    public void ReplaceElixirListener(ElixirAmountChangedDelegate newListener) {
         var index = GameComponentsLookup.ElixirListener;
         var component = CreateComponent<ElixirListenerComponent>(index);
         component.listener = newListener;
