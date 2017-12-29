@@ -13,11 +13,13 @@
     <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <TargetFrameworkProfile>Unity Subset v3.5</TargetFrameworkProfile>
-    <CompilerResponseFile></CompilerResponseFile>
+    <CompilerResponseFile>
+    </CompilerResponseFile>
     <UnityProjectType>Game:1</UnityProjectType>
     <UnityBuildTarget>StandaloneWindows64:19</UnityBuildTarget>
     <UnityVersion>2017.2.0f3</UnityVersion>
-    <RootNamespace></RootNamespace>
+    <RootNamespace>
+    </RootNamespace>
     <LangVersion Condition=" '$(VisualStudioVersion)' != '10.0' ">4</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -282,6 +284,7 @@
     <Compile Include="Assets\Sources\Generated\Input\InputMatcher.cs" />
     <Compile Include="Assets\src\Componenets\GameComponents.cs" />
     <Compile Include="Assets\src\Componenets\InputComponents.cs" />
+    <Compile Include="Assets\src\IReplay.cs" />
     <Compile Include="Assets\src\RootSystemBehaviour.cs" />
     <Compile Include="Assets\src\Systems\GameState\GameStateSystems.cs" />
     <Compile Include="Assets\src\Systems\GameState\Systems\AddReactiveUISystem.cs" />

@@ -6,7 +6,7 @@ public class TickUpdateSystem : IInitializeSystem, IExecuteSystem,ICleanupSystem
 {
     public void Initialize()
     {
-        //Contexts.sharedInstance.game.ReplaceTick(0);
+        Contexts.sharedInstance.game.ReplaceTick(0);
         //_pool.ReplaceTick(0);
     }
 

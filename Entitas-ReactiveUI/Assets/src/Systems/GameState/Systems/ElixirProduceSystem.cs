@@ -11,8 +11,10 @@ public class ElixirProduceSystem : ReactiveSystem<GameEntity>, IInitializeSystem
     const int ProductionFrequency = 3;
     const float ProductionStep = 0.01f;
 
+    private Contexts _contexts;
     public ElixirProduceSystem(Contexts contexts) : base(contexts.game)
     {
+        this._contexts = contexts;
     }
 
     protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
@@ -41,7 +43,7 @@ public class ElixirProduceSystem : ReactiveSystem<GameEntity>, IInitializeSystem
 
     public void Initialize()
     {
-        
+        this._contexts.game.ReplaceElixir(0);
     }
 
     public void Cleanup()

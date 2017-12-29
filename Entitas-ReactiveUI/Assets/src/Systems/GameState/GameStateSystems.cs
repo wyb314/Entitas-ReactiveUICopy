@@ -17,15 +17,6 @@ using Entitas;public class GameStateSystems : Feature
         this.Add(new ElixirProduceSystem(contexts));
         this.Add(new ElixirConsumeSystem(contexts));
         this.Add(new ElixirConsumePersistSystem(contexts));
-        //this.Add(new ElixirConsumeCleanupSystem(contexts));
-        
     }
     
-
-    public override void TearDown()
-    {
-        //Contexts.sharedInstance.game.RemoveElixir();
-        //Contexts.sharedInstance.game.RemoveTick();
-        base.TearDown();
-    }
 }

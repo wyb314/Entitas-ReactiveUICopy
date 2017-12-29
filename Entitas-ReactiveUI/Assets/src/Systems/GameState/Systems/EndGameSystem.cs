@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Net.NetworkInformation;
 using Entitas;
 
@@ -26,14 +27,35 @@ public class EndGameSystem : ReactiveSystem<InputEntity>, ICleanupSystem , ITear
 
     protected override void Execute(List<InputEntity> entities)
     {
-        this._contexts.input.isStartProduceElixir = false;
+        this.EndGame();
+    }
+
+    private void EndGame()
+    {
         
+        this._contexts.input.isStartProduceElixir = false;
+
         this._contexts.input.CreateEntity().isDestroyReactiveUI = true;
         
-        this._contexts.game.RemoveTick();
-        this._contexts.game.RemoveElixir();
-        this._contexts.game.RemoveJumpInTime();
-        this._contexts.game.RemoveLogicSystems();
+        if (this._contexts.game.hasTick)
+        {
+            this._contexts.game.RemoveTick();
+        }
+        
+        if (this._contexts.game.hasElixir)
+        {
+            this._contexts.game.RemoveElixir();
+        }
+        
+        if (this._contexts.game.hasJumpInTime)
+        {
+            this._contexts.game.RemoveJumpInTime();
+        }
+
+        if (this._contexts.game.hasLogicSystems)
+        {
+            this._contexts.game.RemoveLogicSystems();
+        }
     }
 
     public void Cleanup()
@@ -47,6 +69,7 @@ public class EndGameSystem : ReactiveSystem<InputEntity>, ICleanupSystem , ITear
     public void TearDown()
     {
         this._contexts.input.isStartProduceElixir = false;
+        this._contexts.input.isPause = false;
 
         if (this._contexts.game.hasReactiveUI)
         {

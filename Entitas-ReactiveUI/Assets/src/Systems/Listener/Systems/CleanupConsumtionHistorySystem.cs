@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Entitas;
 
-public class CleanupConsumtionHistorySystem : ReactiveSystem<InputEntity>
+public class CleanupConsumtionHistorySystem : ReactiveSystem<InputEntity>, ITearDownSystem
 {
     public CleanupConsumtionHistorySystem(Contexts contexts) : base(contexts.input)
     {
@@ -35,5 +35,13 @@ public class CleanupConsumtionHistorySystem : ReactiveSystem<InputEntity>
         }
         actions.RemoveRange(actions.Count - count, count);
     }
-    
+
+    public void TearDown()
+    {
+        if (Contexts.sharedInstance.game.hasConsumtionHistory)
+        {
+            Contexts.sharedInstance.game.RemoveConsumtionHistory();
+        }
+    }
+
 }

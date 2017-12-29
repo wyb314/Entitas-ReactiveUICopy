@@ -33,23 +33,7 @@ public class NotifyElixirListenersSystem : ReactiveSystem<GameEntity>, ITearDown
             entity.elixirListener.listener();
         }
     }
-
-    //public void Execute(List<Entity> entities)
-    //{
-    //    foreach (var entity in listeners.GetEntities())
-    //    {
-    //        entity.elixirListener.listener.ElixirAmountChanged();
-    //    }
-    //}
-
-    //public TriggerOnEvent trigger { get { return Matcher.Elixir.OnEntityAddedOrRemoved(); } }
-
-    //public void SetPool(Pool pool)
-    //{
-    //    _pool = pool;
-    //    listeners = _pool.GetGroup(Matcher.ElixirListener);
-    //}
-
+    
     public void TearDown()
     {
         foreach (var entity in listeners.GetEntities())

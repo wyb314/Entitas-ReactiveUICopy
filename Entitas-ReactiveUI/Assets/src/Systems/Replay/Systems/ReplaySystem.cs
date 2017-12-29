@@ -26,7 +26,7 @@ public class ReplaySystem : ReactiveSystem<GameEntity>
         {
             return;
         }
-
+        
         var logicSystems = Contexts.sharedInstance.game.logicSystems.systems;
         logicSystems.Initialize();
         var actions = Contexts.sharedInstance.game.hasConsumtionHistory ? Contexts.sharedInstance.game.consumtionHistory.entires : new List<ConsumptionEntry>();
