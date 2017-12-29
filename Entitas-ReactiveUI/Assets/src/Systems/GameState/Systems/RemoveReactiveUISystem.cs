@@ -6,11 +6,9 @@ using UnityEngine;
 public class RemoveReactiveUISystem : ReactiveSystem<InputEntity>,ICleanupSystem
 {
     private Contexts _contexts;
-    IGroup<InputEntity> _group;
     public RemoveReactiveUISystem(Contexts contexts) : base(contexts.input)
     {
         _contexts = contexts;
-        this._group = this._contexts.input.GetGroup(InputMatcher.DestroyReactiveUI);
     }
 
     protected override ICollector<InputEntity> GetTrigger(IContext<InputEntity> context)
@@ -32,16 +30,12 @@ public class RemoveReactiveUISystem : ReactiveSystem<InputEntity>,ICleanupSystem
             GameObject.Destroy(reactiveUIEntity.reactiveUI.uiContent);
             reactiveUIEntity.Destroy();
         }
-
-        this._contexts.input.isPause = false;
+        
     }
     
 
     public void Cleanup()
     {
-        foreach (var entity in _group.GetEntities())
-        {
-            entity.Destroy();
-        }
+        
     }
 }

@@ -35,6 +35,7 @@ public class RootSystemBehaviour : MonoBehaviour
     void OnDestroy()
     {
         this._systems.TearDown();
+        //Contexts.sharedInstance.input.CreateEntity().isEndGame = true;
         _systems.ClearReactiveSystems();
         Contexts.sharedInstance.game.DestroyAllEntities();
         Contexts.sharedInstance.input.DestroyAllEntities();

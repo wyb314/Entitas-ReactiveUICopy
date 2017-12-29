@@ -18,7 +18,7 @@ public class NotifyElixirListenersSystem : ReactiveSystem<GameEntity>, ITearDown
 
     protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
     {
-        return context.CreateCollector(GameMatcher.Elixir.AddedOrRemoved());
+        return context.CreateCollector(GameMatcher.Elixir.Added());
     }
 
     protected override bool Filter(GameEntity entity)

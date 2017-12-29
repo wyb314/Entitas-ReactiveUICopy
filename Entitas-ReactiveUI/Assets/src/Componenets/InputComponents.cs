@@ -33,7 +33,12 @@ public class AddReactiveUIComponent : IComponent
 [Input]
 public class StartGame : IComponent
 {
-    public bool isStartGame;
+}
+
+[Input]
+public class EndGame : IComponent
+{
+    
 }
 
 [Unique]

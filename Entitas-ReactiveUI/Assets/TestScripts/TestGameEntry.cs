@@ -22,7 +22,7 @@ public class TestGameEntry : MonoBehaviour {
         {
             if (GUILayout.Button("Start Game"))
             {
-                Contexts.sharedInstance.input.CreateEntity().isAddReactiveUI = true;
+                Contexts.sharedInstance.input.CreateEntity().isStartGame = true;
                 //GameObject pfb = Resources.Load<GameObject>("ReactiveUI");
                 //elixirUIGo = GameObject.Instantiate(pfb,Vector3.zero,Quaternion.identity);
             }
@@ -31,7 +31,7 @@ public class TestGameEntry : MonoBehaviour {
         {
             if (GUILayout.Button("Destroy Game"))
             {
-                Contexts.sharedInstance.input.CreateEntity().isDestroyReactiveUI = true;
+                Contexts.sharedInstance.input.CreateEntity().isEndGame = true;
                 //GameObject.Destroy(elixirUIGo);
             }
         }

@@ -9,7 +9,8 @@ using Entitas;public class GameStateSystems : Feature
     public GameStateSystems(Contexts contexts) : base("GameStateSystem")
     {
         this.contexts = contexts;
-        
+        this.Add(new StartGameSystem(contexts,this));
+        this.Add(new EndGameSystem(contexts,this));
         this.Add(new AddReactiveUISystem(contexts));
         this.Add(new RemoveReactiveUISystem(contexts));
         this.Add(new TickUpdateSystem());
@@ -19,21 +20,12 @@ using Entitas;public class GameStateSystems : Feature
         //this.Add(new ElixirConsumeCleanupSystem(contexts));
         
     }
-
-    public override void Initialize()
-    {
-        if(!contexts.game.hasLogicSystems)
-        {
-            contexts.game.CreateEntity().AddLogicSystems(this);
-        }
-        base.Initialize();
-        
-    }
+    
 
     public override void TearDown()
     {
-        Contexts.sharedInstance.game.RemoveElixir();
-        Contexts.sharedInstance.game.RemoveTick();
+        //Contexts.sharedInstance.game.RemoveElixir();
+        //Contexts.sharedInstance.game.RemoveTick();
         base.TearDown();
     }
 }

@@ -7,9 +7,16 @@ using UnityEngine.Playables;
 public class RemoveReactiveUIListenersSystem : ReactiveSystem<GameEntity>,ICleanupSystem
 {
     private Contexts _contexts;
+    private IGroup<GameEntity> gameEntityGroup;
+    private IGroup<InputEntity> inputEntityGroup;
     public RemoveReactiveUIListenersSystem(Contexts contexts) : base(contexts.game)
     {
         this._contexts = contexts;
+        gameEntityGroup = this._contexts.game.GetGroup(GameMatcher.AnyOf(GameMatcher.ElixirListener
+            , GameMatcher.TickListener));
+        inputEntityGroup =
+            this._contexts.input.GetGroup(InputMatcher.AllOf(InputMatcher.PauseListener));
+
     }
 
     protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
@@ -24,16 +31,10 @@ public class RemoveReactiveUIListenersSystem : ReactiveSystem<GameEntity>,IClean
 
     protected override void Execute(List<GameEntity> entities)
     {
-       
-        IGroup<GameEntity> gameEntityGroup = this._contexts.game.GetGroup(GameMatcher.AnyOf(GameMatcher.ElixirListener
-            , GameMatcher.TickListener));
         foreach (var entity in gameEntityGroup.GetEntities())
         {
             entity.Destroy();
         }
-
-        IGroup<InputEntity> inputEntityGroup =
-            this._contexts.input.GetGroup(InputMatcher.AllOf(InputMatcher.PauseListener));
         foreach (var entity in inputEntityGroup.GetEntities())
         {
             entity.Destroy();

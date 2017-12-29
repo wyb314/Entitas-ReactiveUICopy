@@ -41,7 +41,7 @@ public class ElixirProduceSystem : ReactiveSystem<GameEntity>, IInitializeSystem
 
     public void Initialize()
     {
-        Contexts.sharedInstance.game.ReplaceElixir(0);
+        
     }
 
     public void Cleanup()

@@ -8,25 +8,25 @@
 //------------------------------------------------------------------------------
 public partial class InputEntity {
 
-    public StartGame startGame { get { return (StartGame)GetComponent(InputComponentsLookup.StartGame); } }
-    public bool hasStartGame { get { return HasComponent(InputComponentsLookup.StartGame); } }
+    static readonly StartGame startGameComponent = new StartGame();
 
-    public void AddStartGame(bool newIsStartGame) {
-        var index = InputComponentsLookup.StartGame;
-        var component = CreateComponent<StartGame>(index);
-        component.isStartGame = newIsStartGame;
-        AddComponent(index, component);
-    }
+    public bool isStartGame {
+        get { return HasComponent(InputComponentsLookup.StartGame); }
+        set {
+            if (value != isStartGame) {
+                var index = InputComponentsLookup.StartGame;
+                if (value) {
+                    var componentPool = GetComponentPool(index);
+                    var component = componentPool.Count > 0
+                            ? componentPool.Pop()
+                            : startGameComponent;
 
-    public void ReplaceStartGame(bool newIsStartGame) {
-        var index = InputComponentsLookup.StartGame;
-        var component = CreateComponent<StartGame>(index);
-        component.isStartGame = newIsStartGame;
-        ReplaceComponent(index, component);
-    }
-
-    public void RemoveStartGame() {
-        RemoveComponent(InputComponentsLookup.StartGame);
+                    AddComponent(index, component);
+                } else {
+                    RemoveComponent(index);
+                }
+            }
+        }
     }
 }
 

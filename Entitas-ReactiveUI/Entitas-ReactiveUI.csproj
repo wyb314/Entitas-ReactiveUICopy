@@ -247,6 +247,7 @@
     <Compile Include="Assets\Scripts\ConsumeButtonBehaviour.cs" />
     <Compile Include="Assets\Scripts\ElixirAmountBehaviour.cs" />
     <Compile Include="Assets\Scripts\ElixirBarBehaviour.cs" />
+    <Compile Include="Assets\Scripts\ElixirConsumeCleanupSystem.cs" />
     <Compile Include="Assets\Scripts\LogicSystems.cs" />
     <Compile Include="Assets\Scripts\PauseResumeButtonBehaviour.cs" />
     <Compile Include="Assets\Scripts\TimeLabelBehaviour.cs" />
@@ -269,6 +270,7 @@
     <Compile Include="Assets\Sources\Generated\Input\Components\InputAddReactiveUIComponent.cs" />
     <Compile Include="Assets\Sources\Generated\Input\Components\InputConsumeComponent.cs" />
     <Compile Include="Assets\Sources\Generated\Input\Components\InputDestroyReactiveUIComponent.cs" />
+    <Compile Include="Assets\Sources\Generated\Input\Components\InputEndGameComponent.cs" />
     <Compile Include="Assets\Sources\Generated\Input\Components\InputPauseComponent.cs" />
     <Compile Include="Assets\Sources\Generated\Input\Components\InputPauseListenerComponent.cs" />
     <Compile Include="Assets\Sources\Generated\Input\Components\InputStartGameComponent.cs" />
@@ -283,11 +285,12 @@
     <Compile Include="Assets\src\RootSystemBehaviour.cs" />
     <Compile Include="Assets\src\Systems\GameState\GameStateSystems.cs" />
     <Compile Include="Assets\src\Systems\GameState\Systems\AddReactiveUISystem.cs" />
-    <Compile Include="Assets\src\Systems\GameState\Systems\ElixirConsumeCleanupSystem.cs" />
     <Compile Include="Assets\src\Systems\GameState\Systems\ElixirConsumePersistSystem.cs" />
     <Compile Include="Assets\src\Systems\GameState\Systems\ElixirConsumeSystem.cs" />
     <Compile Include="Assets\src\Systems\GameState\Systems\ElixirProduceSystem.cs" />
+    <Compile Include="Assets\src\Systems\GameState\Systems\EndGameSystem.cs" />
     <Compile Include="Assets\src\Systems\GameState\Systems\RemoveReactiveUISystem.cs" />
+    <Compile Include="Assets\src\Systems\GameState\Systems\StartGameSystem.cs" />
     <Compile Include="Assets\src\Systems\GameState\Systems\TickUpdateSystem.cs" />
     <Compile Include="Assets\src\Systems\Init\InitSystem.cs" />
     <Compile Include="Assets\src\Systems\Listener\ListenerSystems.cs" />

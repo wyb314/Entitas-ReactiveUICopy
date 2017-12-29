@@ -62,10 +62,10 @@ public class AddReactiveUIListenersSystem : ReactiveSystem<GameEntity> ,IInitial
             var tick = Contexts.sharedInstance.game.tick.currentTick;
             var sec = (tick / 60) % 60;
             var min = (tick / 3600);
-            var secText = sec > 9 ? "" + sec : "0" + sec;
-            var minText = min > 9 ? "" + min : "0" + min;
+            //var secText = sec > 9 ? "" + sec : "0" + sec;
+            //var minText = min > 9 ? "" + min : "0" + min;
 
-            timeLabel.text = minText + ":" + secText;
+            //timeLabel.text = minText + ":" + secText;
         });
     }
 
@@ -77,7 +77,7 @@ public class AddReactiveUIListenersSystem : ReactiveSystem<GameEntity> ,IInitial
         elixirCurrentRt.localScale = new Vector3(0, 1f, 1f);
         this._contexts.game.CreateEntity().AddElixirListener(delegate()
         {
-            elixirLabel.text = ((int)Contexts.sharedInstance.game.elixir.amount).ToString();
+            //elixirLabel.text = ((int)Contexts.sharedInstance.game.elixir.amount).ToString();
             elixirLabel.color = 
             System.Math.Abs(Contexts.sharedInstance.game.elixir.amount - ElixirProduceSystem.ElixirCapacity) < Mathf.Epsilon 
             ? Color.red : Color.black;
