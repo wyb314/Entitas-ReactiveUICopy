@@ -12,10 +12,10 @@ Entitas-ReactiveUI.csproj.user
 Temp
 UnityPackageManager
 /Entitas-ReactiveUI/.vs
-/Entitas-ReactiveUI/Entitas.properties
-/Entitas-ReactiveUI/Entitas-ReactiveUI.csproj
-/Entitas-ReactiveUI/Entitas-ReactiveUI.csproj.user
-/Entitas-ReactiveUI/Entitas-ReactiveUI.Editor.csproj
-/Entitas-ReactiveUI/Entitas-ReactiveUI.sln
-/Entitas-ReactiveUI/Entitas-ReactiveUI.sln.iml
-/Entitas-ReactiveUI/wuyuanbing.userproperties
+Entitas.properties
+Entitas-ReactiveUI.csproj
+Entitas-ReactiveUI.csproj.user
+Entitas-ReactiveUI.Editor.csproj
+Entitas-ReactiveUI.sln
+Entitas-ReactiveUI.sln.iml
+wuyuanbing.userproperties
